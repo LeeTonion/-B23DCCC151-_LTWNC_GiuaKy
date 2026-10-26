@@ -50,7 +50,6 @@ export const BorrowStatusBanner: React.FC = () => {
                 </div>
               ) : (
                 <div className="slot-empty-content">
-                  <span className="slot-pulse-beacon" />
                   <CheckCircle className="slot-empty-icon" />
                   <span>Vị trí trống — bạn có thể mượn thêm</span>
                 </div>

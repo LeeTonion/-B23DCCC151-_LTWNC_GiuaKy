@@ -21,25 +21,20 @@ export const BookCard: React.FC<BookCardProps> = React.memo(({
 
   const getCategoryBadgeClass = (category: string) => {
     switch (category) {
-      case 'CNTT': return 'badge-cntt';
-      case 'Kinh tế': return 'badge-kinhte';
-      case 'Ngoại ngữ': return 'badge-ngoaingu';
-      default: return 'badge-default';
-    }
-  };
-
-  const getCardSpineClass = (category: string) => {
-    switch (category) {
-      case 'CNTT': return 'book-card--cntt';
-      case 'Kinh tế': return 'book-card--kinhte';
-      case 'Ngoại ngữ': return 'book-card--ngoaingu';
-      default: return '';
+      case 'CNTT':
+        return 'badge-cntt';
+      case 'Kinh tế':
+        return 'badge-kinhte';
+      case 'Ngoại ngữ':
+        return 'badge-ngoaingu';
+      default:
+        return 'badge-default';
     }
   };
 
   return (
     <article
-      className={`book-card ${getCardSpineClass(book.category)} ${isBorrowed ? 'book-card--borrowed' : ''} ${isOutOfStock ? 'book-card--out' : ''}`}
+      className={`book-card ${isBorrowed ? 'book-card--borrowed' : ''} ${isOutOfStock ? 'book-card--out' : ''}`}
       data-testid={`book-card-${book.id}`}
     >
       <div className="book-card-header">
@@ -79,15 +74,6 @@ export const BookCard: React.FC<BookCardProps> = React.memo(({
           >
             {book.availableCopies} / {book.totalCopies}
           </span>
-          <div className="copies-track">
-            <div
-              className="copies-track-bar"
-              style={{
-                width: `${book.totalCopies > 0 ? (book.availableCopies / book.totalCopies) * 100 : 0}%`,
-                backgroundColor: isOutOfStock ? 'var(--danger)' : 'var(--primary)',
-              }}
-            />
-          </div>
         </div>
 
         <div className="book-actions">
