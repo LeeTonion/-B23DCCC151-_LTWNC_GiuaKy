@@ -252,7 +252,10 @@ const StatsPage: React.FC = () => {
                     </td>
                     <td>{book.author}</td>
                     <td>
-                      <span className={`category-badge badge-${book.category.toLowerCase().replace(/\s+/g, '')}`}>
+                      <span className={`category-badge ${
+                        book.category === 'CNTT' ? 'badge-cntt' :
+                        book.category === 'Kinh tế' ? 'badge-kinhte' : 'badge-ngoaingu'
+                      }`}>
                         {book.category}
                       </span>
                     </td>
